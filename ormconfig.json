@@ -1,0 +1,16 @@
+{
+  "type": "postgres",
+  "host": "0.0.0.0",
+  "port": 5432,
+  "username": "test",
+  "password": "test",
+  "database": "test",
+  "synchronize": true,
+  "logging": false,
+  "entities": [
+    "dist/model/**/*.js"
+  ],
+  "migrations": [
+    "dist/migrations/*.js"
+  ]
+}
