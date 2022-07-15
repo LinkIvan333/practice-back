@@ -19,10 +19,10 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const crypto_1 = require("crypto");
 function isPasswordValid(password) {
-    if (password.length < 8) {
-        return false;
-    }
-    return true;
+    const upperCaseLetters = /[A-Z]/g;
+    const lowerCaseLetters = /[a-z]/g;
+    const numbers = /[0-9]/g;
+    return (password.match(upperCaseLetters) && password.match(lowerCaseLetters) && password.match(numbers) && password.length >= 8);
 }
 let UserService = class UserService {
     constructor(usersRep) {

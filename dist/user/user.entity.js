@@ -52,6 +52,7 @@ __decorate([
     __metadata("design:type", Number)
 ], UserEntity.prototype, "points", void 0);
 UserEntity = __decorate([
+    (0, typeorm_1.Unique)(['mail']),
     (0, typeorm_1.Entity)({ name: 'users' }),
     __metadata("design:paramtypes", [String, String, String, Number])
 ], UserEntity);

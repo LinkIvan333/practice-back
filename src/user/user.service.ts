@@ -6,10 +6,10 @@ import {createHmac, randomBytes} from 'crypto';
 import {PostResponse, UserPublicModel} from "../types";
 
 function isPasswordValid(password): boolean {
-    if (password.length < 8) {
-        return false
-    }
-    return true
+    const upperCaseLetters = /[A-Z]/g;
+    const lowerCaseLetters = /[a-z]/g;
+    const numbers = /[0-9]/g;
+    return (password.match(upperCaseLetters) && password.match(lowerCaseLetters) && password.match(numbers) && password.length >= 8);
 }
 
 @Injectable()
