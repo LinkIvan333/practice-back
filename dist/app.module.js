@@ -21,6 +21,22 @@ const adminjs_1 = require("adminjs");
 const category_entity_1 = require("./category/category.entity");
 const subCategory_module_1 = require("./subCategory/subCategory.module");
 const subCategory_entity_1 = require("./subCategory/subCategory.entity");
+const model_module_1 = require("./model/model.module");
+const model_entity_1 = require("./model/model.entity");
+const addition_service_1 = require("./addition/addition.service");
+const addition_controller_1 = require("./addition/addition.controller");
+const addition_module_1 = require("./addition/addition.module");
+const addition_entity_1 = require("./addition/addition.entity");
+const photo_service_1 = require("./photo/photo.service");
+const photo_controller_1 = require("./photo/photo.controller");
+const photo_module_1 = require("./photo/photo.module");
+const photo_entity_1 = require("./photo/photo.entity");
+const model_addition_service_1 = require("./model_addition/model_addition.service");
+const model_addition_module_1 = require("./model_addition/model_addition.module");
+const model_addition_entity_1 = require("./model_addition/model_addition.entity");
+const news_controller_1 = require("./news/news.controller");
+const news_module_1 = require("./news/news.module");
+const news_entity_1 = require("./news/news.entity");
 adminjs_1.default.registerAdapter({ Database: typeorm_2.Database, Resource: typeorm_2.Resource });
 let AppModule = class AppModule {
 };
@@ -36,13 +52,13 @@ AppModule = __decorate([
                 database: 'test',
                 logging: true,
                 synchronize: true,
-                entities: [user_entity_1.UserEntity, category_entity_1.CategoryEntity, subCategory_entity_1.SubCategoryEntity],
+                entities: [user_entity_1.UserEntity, category_entity_1.CategoryEntity, subCategory_entity_1.SubCategoryEntity, model_entity_1.ModelEntity, addition_entity_1.AdditionEntity, photo_entity_1.PhotoEntity, model_addition_entity_1.ModelAdditionEntity, news_entity_1.NewsEntity],
                 migrations: ['src/database/migrations/*.ts'],
             }),
             nestjs_1.AdminModule.createAdmin({
                 adminJsOptions: {
                     rootPath: '/admin',
-                    resources: [user_entity_1.UserEntity, category_entity_1.CategoryEntity, subCategory_entity_1.SubCategoryEntity],
+                    resources: [user_entity_1.UserEntity, category_entity_1.CategoryEntity, subCategory_entity_1.SubCategoryEntity, model_entity_1.ModelEntity, addition_entity_1.AdditionEntity, photo_entity_1.PhotoEntity, model_addition_entity_1.ModelAdditionEntity, news_entity_1.NewsEntity],
                 },
                 auth: {
                     authenticate: async (email, password) => Promise.resolve({ email: 'test' }),
@@ -54,9 +70,14 @@ AppModule = __decorate([
             user_module_1.UserModule,
             category_module_1.CategoryModule,
             subCategory_module_1.SubCategoryModule,
+            model_module_1.ModelModule,
+            addition_module_1.AdditionModule,
+            photo_module_1.PhotoModule,
+            model_addition_module_1.ModelAdditionModule,
+            news_module_1.NewsModule,
         ],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        controllers: [app_controller_1.AppController, addition_controller_1.AdditionController, photo_controller_1.PhotoController, news_controller_1.NewsController],
+        providers: [app_service_1.AppService, addition_service_1.AdditionService, photo_service_1.PhotoService, model_addition_service_1.ModelAdditionService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

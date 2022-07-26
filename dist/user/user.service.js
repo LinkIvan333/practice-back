@@ -29,13 +29,10 @@ let UserService = class UserService {
         this.usersRep = usersRep;
     }
     async getUser(id) {
-        const User = await this.usersRep.findOneBy({ userID: id });
-        return {
-            userID: User.userID,
-            name: User.name,
-            phoneNumber: User.phoneNumber,
-            points: User.points,
-        };
+        return await this.usersRep.findOne({
+            where: { userID: id },
+            select: ["userID", "name", "phoneNumber", "points"]
+        });
     }
     async registerUser(mail, password) {
         const existedUser = await this.getUserByMail(mail);

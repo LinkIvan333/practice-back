@@ -1,7 +1,7 @@
-import {Injectable, Logger} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {UserEntity} from './user.entity';
 import {InjectRepository} from '@nestjs/typeorm';
-import {Repository, UpdateResult} from 'typeorm';
+import {Repository} from 'typeorm';
 import {createHmac, randomBytes} from 'crypto';
 import {PostResponse, UserPublicModel} from "../types";
 
@@ -21,13 +21,10 @@ export class UserService {
     }
 
     async getUser(id: number): Promise<UserPublicModel> {
-        const User = await this.usersRep.findOneBy({userID: id});
-        return {
-            userID: User.userID,
-            name: User.name,
-            phoneNumber: User.phoneNumber,
-            points: User.points,
-        }
+        return await this.usersRep.findOne({
+            where: {userID: id},
+            select: ["userID", "name", "phoneNumber", "points"]
+        })
     }
 
     async registerUser(mail: string, password: string): Promise<PostResponse> {

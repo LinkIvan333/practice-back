@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 let SubCategoryController = class SubCategoryController {
 };
 SubCategoryController = __decorate([
-    (0, common_1.Controller)('sub-category')
+    (0, common_1.Controller)('subcategory')
 ], SubCategoryController);
 exports.SubCategoryController = SubCategoryController;
 //# sourceMappingURL=subCategory.controller.js.map
