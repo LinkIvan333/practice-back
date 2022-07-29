@@ -16,6 +16,9 @@ export class ModelEntity extends BaseEntity {
     modelID: number;
 
     @Column()
+    name: string;
+
+    @Column()
     article: string;
 
     @Column()
@@ -45,19 +48,12 @@ export class ModelEntity extends BaseEntity {
     @Column({ type: 'date', nullable: true })
     sellEnd: string;
 
-    // @ManyToMany(() => AdditionEntity, (addition) => addition.models, {cascade: true})
-    // @JoinTable()
-    // additions: AdditionEntity[];
-    //
-    // @RelationId((model: ModelEntity) => model.additions)
-    // additionsID: number;
     @OneToMany(() => ModelAdditionEntity, (modelAddition) => modelAddition.model)
     modelAdditions: ModelAdditionEntity[];
-
-    // @OneToMany(() => AdditionEntity, (addition) => addition.model)
-    // additions: AdditionEntity[];
 
     @OneToMany(() => PhotoEntity, (photo) => photo.model)
     photos: PhotoEntity[];
 
+    @OneToOne(() => PhotoEntity, (photo) => photo.modelPreview)
+    photo: PhotoEntity;
 }

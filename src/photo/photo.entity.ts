@@ -23,6 +23,9 @@ export class PhotoEntity extends BaseEntity {
     @JoinColumn({name: 'model_id'})
     model: ModelEntity;
 
+    @OneToOne(() => ModelEntity, (model) => model.photo)
+    modelPreview: ModelEntity;
+
     @OneToOne(() => NewsEntity, (news) => news.photo)
     news: NewsEntity;
 }

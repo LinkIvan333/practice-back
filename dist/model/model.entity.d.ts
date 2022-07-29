@@ -3,6 +3,7 @@ import { PhotoEntity } from "../photo/photo.entity";
 import { ModelAdditionEntity } from "../model_addition/model_addition.entity";
 export declare class ModelEntity extends BaseEntity {
     modelID: number;
+    name: string;
     article: string;
     scale: string;
     weight: number;
@@ -15,4 +16,5 @@ export declare class ModelEntity extends BaseEntity {
     sellEnd: string;
     modelAdditions: ModelAdditionEntity[];
     photos: PhotoEntity[];
+    photo: PhotoEntity;
 }

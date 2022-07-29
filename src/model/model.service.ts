@@ -13,9 +13,9 @@ export class ModelService {
     async getModelsList(page?: number, perPage?: number) {
         if (perPage) {
             const skip = (perPage * page) - perPage;
-            return await this.modelsRep.find({take: perPage, skip})
+            return await this.modelsRep.find({take: perPage, skip, select: ['name', 'article', 'price']})
         }
-        return await this.modelsRep.find()
+        return await this.modelsRep.find({select: ['name', 'article', 'price']})
     }
 
     async getModel(id: number) {

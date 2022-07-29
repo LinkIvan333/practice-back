@@ -22,6 +22,10 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
+], ModelEntity.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
 ], ModelEntity.prototype, "article", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -67,6 +71,10 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => photo_entity_1.PhotoEntity, (photo) => photo.model),
     __metadata("design:type", Array)
 ], ModelEntity.prototype, "photos", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => photo_entity_1.PhotoEntity, (photo) => photo.modelPreview),
+    __metadata("design:type", photo_entity_1.PhotoEntity)
+], ModelEntity.prototype, "photo", void 0);
 ModelEntity = __decorate([
     (0, typeorm_1.Entity)({ name: 'model' })
 ], ModelEntity);
