@@ -7,6 +7,7 @@ import {
 import {ModelEntity} from "../model/model.entity";
 import {CategoryEntity} from "../category/category.entity";
 import {ModelAdditionEntity} from "../model_addition/model_addition.entity";
+import {ManufacturerEntity} from "../manufacturer/manufacturer.entity";
 
 @Entity({name: 'addition'})
 export class AdditionEntity extends BaseEntity {
@@ -17,7 +18,7 @@ export class AdditionEntity extends BaseEntity {
     article: string;
 
     @Column()
-    scale: string;
+    scale: number;
 
     @Column()
     weight: number;
@@ -43,12 +44,13 @@ export class AdditionEntity extends BaseEntity {
     @Column({type: 'date', nullable: true})
     sellEnd: string;
 
-    // @ManyToMany(() => ModelEntity, (model) => model.additions, {cascade: true})
-    // models: ModelEntity[]
-    //
-    // @RelationId((addition: AdditionEntity) => addition.models)
-    // modelID: number;
-
     @OneToMany(() => ModelAdditionEntity, (modelAddition) => modelAddition.addition)
     modelAdditions: ModelAdditionEntity[];
+
+    @Column()
+    previewPhoto: string;
+
+    @ManyToOne(() => ManufacturerEntity, (manufacturer) => manufacturer.additions)
+    manufacturer: ManufacturerEntity;
+
 }

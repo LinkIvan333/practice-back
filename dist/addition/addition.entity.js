@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdditionEntity = void 0;
 const typeorm_1 = require("typeorm");
 const model_addition_entity_1 = require("../model_addition/model_addition.entity");
+const manufacturer_entity_1 = require("../manufacturer/manufacturer.entity");
 let AdditionEntity = class AdditionEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -24,7 +25,7 @@ __decorate([
 ], AdditionEntity.prototype, "article", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], AdditionEntity.prototype, "scale", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -62,6 +63,14 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => model_addition_entity_1.ModelAdditionEntity, (modelAddition) => modelAddition.addition),
     __metadata("design:type", Array)
 ], AdditionEntity.prototype, "modelAdditions", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], AdditionEntity.prototype, "previewPhoto", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => manufacturer_entity_1.ManufacturerEntity, (manufacturer) => manufacturer.additions),
+    __metadata("design:type", manufacturer_entity_1.ManufacturerEntity)
+], AdditionEntity.prototype, "manufacturer", void 0);
 AdditionEntity = __decorate([
     (0, typeorm_1.Entity)({ name: 'addition' })
 ], AdditionEntity);

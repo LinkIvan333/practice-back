@@ -13,6 +13,7 @@ exports.ModelEntity = void 0;
 const typeorm_1 = require("typeorm");
 const photo_entity_1 = require("../photo/photo.entity");
 const model_addition_entity_1 = require("../model_addition/model_addition.entity");
+const manufacturer_entity_1 = require("../manufacturer/manufacturer.entity");
 let ModelEntity = class ModelEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -29,7 +30,7 @@ __decorate([
 ], ModelEntity.prototype, "article", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], ModelEntity.prototype, "scale", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -72,9 +73,13 @@ __decorate([
     __metadata("design:type", Array)
 ], ModelEntity.prototype, "photos", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(() => photo_entity_1.PhotoEntity, (photo) => photo.modelPreview),
-    __metadata("design:type", photo_entity_1.PhotoEntity)
-], ModelEntity.prototype, "photo", void 0);
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], ModelEntity.prototype, "previewPhoto", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => manufacturer_entity_1.ManufacturerEntity, (manufacturer) => manufacturer.models),
+    __metadata("design:type", manufacturer_entity_1.ManufacturerEntity)
+], ModelEntity.prototype, "manufacturer", void 0);
 ModelEntity = __decorate([
     (0, typeorm_1.Entity)({ name: 'model' })
 ], ModelEntity);

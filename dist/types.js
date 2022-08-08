@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getModel = exports.getModelsList = void 0;
+exports.getSearchResults = exports.getModel = exports.getModelsList = void 0;
 const class_validator_1 = require("class-validator");
 class getModelsList {
 }
@@ -31,4 +31,32 @@ __decorate([
     __metadata("design:type", Number)
 ], getModel.prototype, "id", void 0);
 exports.getModel = getModel;
+class getSearchResults {
+}
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], getSearchResults.prototype, "value", void 0);
+__decorate([
+    (0, class_validator_1.IsNumberString)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], getSearchResults.prototype, "manufacturer", void 0);
+__decorate([
+    (0, class_validator_1.IsBoolean)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Boolean)
+], getSearchResults.prototype, "inStock", void 0);
+__decorate([
+    (0, class_validator_1.IsNumberString)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], getSearchResults.prototype, "scale", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], getSearchResults.prototype, "price", void 0);
+exports.getSearchResults = getSearchResults;
 //# sourceMappingURL=types.js.map

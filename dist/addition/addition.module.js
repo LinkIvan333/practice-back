@@ -14,11 +14,12 @@ const model_entity_1 = require("../model/model.entity");
 const addition_entity_1 = require("./addition.entity");
 const addition_service_1 = require("./addition.service");
 const addition_controller_1 = require("./addition.controller");
+const manufacturer_entity_1 = require("../manufacturer/manufacturer.entity");
 let AdditionModule = AdditionModule_1 = class AdditionModule {
 };
 AdditionModule = AdditionModule_1 = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([model_entity_1.ModelEntity, addition_entity_1.AdditionEntity])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([model_entity_1.ModelEntity, addition_entity_1.AdditionEntity, manufacturer_entity_1.ManufacturerEntity])],
         exports: [typeorm_1.TypeOrmModule, AdditionModule_1, addition_service_1.AdditionService],
         controllers: [addition_controller_1.AdditionController],
         providers: [addition_service_1.AdditionService]

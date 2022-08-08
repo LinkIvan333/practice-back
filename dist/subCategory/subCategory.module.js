@@ -9,7 +9,7 @@ var SubCategoryModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SubCategoryModule = void 0;
 const common_1 = require("@nestjs/common");
-const SubCategory_service_1 = require("./SubCategory.service");
+const subCategory_service_1 = require("./subCategory.service");
 const subCategory_controller_1 = require("./subCategory.controller");
 const typeorm_1 = require("@nestjs/typeorm");
 const subCategory_entity_1 = require("./subCategory.entity");
@@ -19,8 +19,8 @@ let SubCategoryModule = SubCategoryModule_1 = class SubCategoryModule {
 SubCategoryModule = SubCategoryModule_1 = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([subCategory_entity_1.SubCategoryEntity, category_entity_1.CategoryEntity])],
-        exports: [typeorm_1.TypeOrmModule, SubCategoryModule_1, SubCategory_service_1.SubCategoryService],
-        providers: [SubCategory_service_1.SubCategoryService],
+        exports: [typeorm_1.TypeOrmModule, SubCategoryModule_1, subCategory_service_1.SubCategoryService],
+        providers: [subCategory_service_1.SubCategoryService],
         controllers: [subCategory_controller_1.SubCategoryController]
     })
 ], SubCategoryModule);

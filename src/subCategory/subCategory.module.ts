@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { SubCategoryService } from './SubCategory.service';
+import { SubCategoryService } from './subCategory.service';
 import { SubCategoryController } from './subCategory.controller';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import { SubCategoryEntity } from "./subCategory.entity";

@@ -6,6 +6,5 @@ export declare class PhotoEntity extends BaseEntity {
     name: string;
     modelID: string;
     model: ModelEntity;
-    modelPreview: ModelEntity;
     news: NewsEntity;
 }

@@ -33,10 +33,6 @@ __decorate([
     __metadata("design:type", model_entity_1.ModelEntity)
 ], PhotoEntity.prototype, "model", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(() => model_entity_1.ModelEntity, (model) => model.photo),
-    __metadata("design:type", model_entity_1.ModelEntity)
-], PhotoEntity.prototype, "modelPreview", void 0);
-__decorate([
     (0, typeorm_1.OneToOne)(() => news_entity_1.NewsEntity, (news) => news.photo),
     __metadata("design:type", news_entity_1.NewsEntity)
 ], PhotoEntity.prototype, "news", void 0);

@@ -1,11 +1,12 @@
 import { BaseEntity } from 'typeorm';
 import { PhotoEntity } from "../photo/photo.entity";
 import { ModelAdditionEntity } from "../model_addition/model_addition.entity";
+import { ManufacturerEntity } from "../manufacturer/manufacturer.entity";
 export declare class ModelEntity extends BaseEntity {
     modelID: number;
     name: string;
     article: string;
-    scale: string;
+    scale: number;
     weight: number;
     dimensions: string;
     price: number;
@@ -16,5 +17,6 @@ export declare class ModelEntity extends BaseEntity {
     sellEnd: string;
     modelAdditions: ModelAdditionEntity[];
     photos: PhotoEntity[];
-    photo: PhotoEntity;
+    previewPhoto: string;
+    manufacturer: ManufacturerEntity;
 }

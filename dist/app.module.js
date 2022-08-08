@@ -37,6 +37,11 @@ const model_addition_entity_1 = require("./model_addition/model_addition.entity"
 const news_controller_1 = require("./news/news.controller");
 const news_module_1 = require("./news/news.module");
 const news_entity_1 = require("./news/news.entity");
+const search_module_1 = require("./search/search.module");
+const manufacturer_service_1 = require("./manufacturer/manufacturer.service");
+const manufacturer_controller_1 = require("./manufacturer/manufacturer.controller");
+const manufacturer_module_1 = require("./manufacturer/manufacturer.module");
+const manufacturer_entity_1 = require("./manufacturer/manufacturer.entity");
 adminjs_1.default.registerAdapter({ Database: typeorm_2.Database, Resource: typeorm_2.Resource });
 let AppModule = class AppModule {
 };
@@ -52,13 +57,13 @@ AppModule = __decorate([
                 database: 'test',
                 logging: true,
                 synchronize: true,
-                entities: [user_entity_1.UserEntity, category_entity_1.CategoryEntity, subCategory_entity_1.SubCategoryEntity, model_entity_1.ModelEntity, addition_entity_1.AdditionEntity, photo_entity_1.PhotoEntity, model_addition_entity_1.ModelAdditionEntity, news_entity_1.NewsEntity],
+                entities: [user_entity_1.UserEntity, category_entity_1.CategoryEntity, subCategory_entity_1.SubCategoryEntity, model_entity_1.ModelEntity, addition_entity_1.AdditionEntity, photo_entity_1.PhotoEntity, model_addition_entity_1.ModelAdditionEntity, news_entity_1.NewsEntity, manufacturer_entity_1.ManufacturerEntity],
                 migrations: ['src/database/migrations/*.ts'],
             }),
             nestjs_1.AdminModule.createAdmin({
                 adminJsOptions: {
                     rootPath: '/admin',
-                    resources: [user_entity_1.UserEntity, category_entity_1.CategoryEntity, subCategory_entity_1.SubCategoryEntity, model_entity_1.ModelEntity, addition_entity_1.AdditionEntity, photo_entity_1.PhotoEntity, model_addition_entity_1.ModelAdditionEntity, news_entity_1.NewsEntity],
+                    resources: [user_entity_1.UserEntity, category_entity_1.CategoryEntity, subCategory_entity_1.SubCategoryEntity, model_entity_1.ModelEntity, addition_entity_1.AdditionEntity, photo_entity_1.PhotoEntity, model_addition_entity_1.ModelAdditionEntity, news_entity_1.NewsEntity, manufacturer_entity_1.ManufacturerEntity],
                 },
                 auth: {
                     authenticate: async (email, password) => Promise.resolve({ email: 'test' }),
@@ -75,9 +80,11 @@ AppModule = __decorate([
             photo_module_1.PhotoModule,
             model_addition_module_1.ModelAdditionModule,
             news_module_1.NewsModule,
+            search_module_1.SearchModule,
+            manufacturer_module_1.ManufacturerModule,
         ],
-        controllers: [app_controller_1.AppController, addition_controller_1.AdditionController, photo_controller_1.PhotoController, news_controller_1.NewsController],
-        providers: [app_service_1.AppService, addition_service_1.AdditionService, photo_service_1.PhotoService, model_addition_service_1.ModelAdditionService],
+        controllers: [app_controller_1.AppController, addition_controller_1.AdditionController, photo_controller_1.PhotoController, news_controller_1.NewsController, manufacturer_controller_1.ManufacturerController],
+        providers: [app_service_1.AppService, addition_service_1.AdditionService, photo_service_1.PhotoService, model_addition_service_1.ModelAdditionService, manufacturer_service_1.ManufacturerService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

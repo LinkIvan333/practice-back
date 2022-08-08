@@ -9,6 +9,7 @@ import {AdditionEntity} from "../addition/addition.entity";
 import {PhotoEntity} from "../photo/photo.entity";
 import {CategoryEntity} from "../category/category.entity";
 import {ModelAdditionEntity} from "../model_addition/model_addition.entity";
+import {ManufacturerEntity} from "../manufacturer/manufacturer.entity";
 
 @Entity({ name: 'model' })
 export class ModelEntity extends BaseEntity {
@@ -22,7 +23,7 @@ export class ModelEntity extends BaseEntity {
     article: string;
 
     @Column()
-    scale: string;
+    scale: number;
 
     @Column()
     weight: number;
@@ -54,6 +55,11 @@ export class ModelEntity extends BaseEntity {
     @OneToMany(() => PhotoEntity, (photo) => photo.model)
     photos: PhotoEntity[];
 
-    @OneToOne(() => PhotoEntity, (photo) => photo.modelPreview)
-    photo: PhotoEntity;
+    // @OneToOne(() => PhotoEntity, (photo) => photo.modelPreview)
+    // photo: PhotoEntity;
+    @Column()
+    previewPhoto: string;
+
+    @ManyToOne(() => ManufacturerEntity, (manufacturer) => manufacturer.models)
+    manufacturer: ManufacturerEntity;
 }

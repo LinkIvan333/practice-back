@@ -14,11 +14,13 @@ const model_service_1 = require("./model.service");
 const typeorm_1 = require("@nestjs/typeorm");
 const model_entity_1 = require("./model.entity");
 const addition_entity_1 = require("../addition/addition.entity");
+const manufacturer_entity_1 = require("../manufacturer/manufacturer.entity");
+const photo_entity_1 = require("../photo/photo.entity");
 let ModelModule = ModelModule_1 = class ModelModule {
 };
 ModelModule = ModelModule_1 = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([model_entity_1.ModelEntity, addition_entity_1.AdditionEntity])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([model_entity_1.ModelEntity, addition_entity_1.AdditionEntity, manufacturer_entity_1.ManufacturerEntity, photo_entity_1.PhotoEntity])],
         exports: [typeorm_1.TypeOrmModule, ModelModule_1, model_service_1.ModelService],
         controllers: [model_controller_1.ModelController],
         providers: [model_service_1.ModelService]

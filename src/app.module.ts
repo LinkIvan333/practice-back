@@ -31,6 +31,11 @@ import {ModelAdditionEntity} from "./model_addition/model_addition.entity";
 import { NewsController } from './news/news.controller';
 import { NewsModule } from './news/news.module';
 import {NewsEntity} from "./news/news.entity";
+import {SearchModule} from "./search/search.module";
+import { ManufacturerService } from './manufacturer/manufacturer.service';
+import { ManufacturerController } from './manufacturer/manufacturer.controller';
+import { ManufacturerModule } from './manufacturer/manufacturer.module';
+import {ManufacturerEntity} from "./manufacturer/manufacturer.entity";
 
 AdminJS.registerAdapter({Database, Resource})
 
@@ -47,13 +52,13 @@ AdminJS.registerAdapter({Database, Resource})
             database: 'test',
             logging: true,
             synchronize: true,
-            entities: [UserEntity, CategoryEntity, SubCategoryEntity, ModelEntity, AdditionEntity, PhotoEntity, ModelAdditionEntity, NewsEntity],
+            entities: [UserEntity, CategoryEntity, SubCategoryEntity, ModelEntity, AdditionEntity, PhotoEntity, ModelAdditionEntity, NewsEntity, ManufacturerEntity],
             migrations: ['src/database/migrations/*.ts'],
         }),
         AdminModule.createAdmin({
             adminJsOptions: {
                 rootPath: '/admin',
-                resources: [UserEntity, CategoryEntity, SubCategoryEntity, ModelEntity, AdditionEntity, PhotoEntity, ModelAdditionEntity, NewsEntity],
+                resources: [UserEntity, CategoryEntity, SubCategoryEntity, ModelEntity, AdditionEntity, PhotoEntity, ModelAdditionEntity, NewsEntity, ManufacturerEntity],
             },
             auth: {
                 authenticate: async (email, password) => Promise.resolve({email: 'test'}),
@@ -70,9 +75,11 @@ AdminJS.registerAdapter({Database, Resource})
         PhotoModule,
         ModelAdditionModule,
         NewsModule,
+        SearchModule,
+        ManufacturerModule,
     ],
-    controllers: [AppController, AdditionController, PhotoController, NewsController],
-    providers: [AppService, AdditionService, PhotoService, ModelAdditionService],
+    controllers: [AppController, AdditionController, PhotoController, NewsController, ManufacturerController],
+    providers: [AppService, AdditionService, PhotoService, ModelAdditionService, ManufacturerService],
 })
 export class AppModule {
 }
