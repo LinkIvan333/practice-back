@@ -37,6 +37,9 @@ export class ModelEntity extends BaseEntity {
     @Column()
     description: string;
 
+    @Column({default: true})
+    latest: boolean;
+
     @Column({default: false})
     sell: boolean;
 

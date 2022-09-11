@@ -18,6 +18,7 @@ export declare type Model = {
     sellPrice: number;
     previewPhoto: string;
     manufacturer: number;
+    latest: boolean;
 };
 export declare type Addition = {
     additionID: number;
@@ -60,5 +61,9 @@ export declare class getSearchResults {
     inStock: boolean;
     scale: number;
     price: number;
+    latest: number;
+}
+export declare class deleteModel {
+    modelID: number;
 }
 export {};

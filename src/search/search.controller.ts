@@ -1,15 +1,34 @@
-import {Body, Controller, Get, Param, ParseIntPipe, Post, Query, UsePipes, ValidationPipe} from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Delete,
+    Get,
+    Param,
+    ParseIntPipe,
+    Post,
+    Query,
+    Req, UseGuards,
+    UsePipes,
+    ValidationPipe
+} from '@nestjs/common';
 import {SearchService} from "./search.service";
-import {Addition, getSearchResults, Model} from "../types";
+import {Addition, deleteModel, getSearchResults, Model} from "../types";
+import {JwtAuthGuard} from "../auth/jwt-auth.guard";
 
 
 @Controller('elastic')
 export class SearchController {
     constructor(private readonly searchService: SearchService) {}
 
+    @UseGuards(JwtAuthGuard)
     @Post('addModel')
     async addModel(@Body() model: Model) {
         return this.searchService.indexModel(model)
+    }
+
+    @Delete('removeModel')
+    async removeModel(@Query() query: deleteModel) {
+        return this.searchService.removeModel(query.modelID)
     }
 
     @Post('modifyModel')

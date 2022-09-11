@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSearchResults = exports.getModel = exports.getModelsList = void 0;
+exports.deleteModel = exports.getSearchResults = exports.getModel = exports.getModelsList = void 0;
 const class_validator_1 = require("class-validator");
 class getModelsList {
 }
@@ -58,5 +58,17 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], getSearchResults.prototype, "price", void 0);
+__decorate([
+    (0, class_validator_1.IsBoolean)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], getSearchResults.prototype, "latest", void 0);
 exports.getSearchResults = getSearchResults;
+class deleteModel {
+}
+__decorate([
+    (0, class_validator_1.IsNumberString)(),
+    __metadata("design:type", Number)
+], deleteModel.prototype, "modelID", void 0);
+exports.deleteModel = deleteModel;
 //# sourceMappingURL=types.js.map

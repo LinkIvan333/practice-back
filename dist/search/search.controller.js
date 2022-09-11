@@ -16,12 +16,16 @@ exports.SearchController = void 0;
 const common_1 = require("@nestjs/common");
 const search_service_1 = require("./search.service");
 const types_1 = require("../types");
+const jwt_auth_guard_1 = require("../auth/jwt-auth.guard");
 let SearchController = class SearchController {
     constructor(searchService) {
         this.searchService = searchService;
     }
     async addModel(model) {
         return this.searchService.indexModel(model);
+    }
+    async removeModel(query) {
+        return this.searchService.removeModel(query.modelID);
     }
     async modifyModel(model) {
         return this.searchService.indexModel(model);
@@ -34,12 +38,20 @@ let SearchController = class SearchController {
     }
 };
 __decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Post)('addModel'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], SearchController.prototype, "addModel", null);
+__decorate([
+    (0, common_1.Delete)('removeModel'),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [types_1.deleteModel]),
+    __metadata("design:returntype", Promise)
+], SearchController.prototype, "removeModel", null);
 __decorate([
     (0, common_1.Post)('modifyModel'),
     __param(0, (0, common_1.Body)()),

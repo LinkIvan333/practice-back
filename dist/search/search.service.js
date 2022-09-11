@@ -33,7 +33,8 @@ let SearchService = class SearchService {
                 scale: item.scale,
                 inStock: item.inStock,
                 sell: item.sell,
-                sellPrice: item.sellPrice
+                sellPrice: item.sellPrice,
+                latest: item.latest,
             }
         });
     }
@@ -71,6 +72,13 @@ let SearchService = class SearchService {
             filters.push({
                 term: {
                     inStock: query.inStock
+                },
+            });
+        }
+        if (query.latest) {
+            filters.push({
+                term: {
+                    latest: query.latest
                 },
             });
         }

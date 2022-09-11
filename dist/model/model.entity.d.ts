@@ -11,6 +11,7 @@ export declare class ModelEntity extends BaseEntity {
     dimensions: string;
     price: number;
     description: string;
+    latest: boolean;
     sell: boolean;
     sellPrice: number;
     sellStart: string;

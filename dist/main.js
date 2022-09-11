@@ -8,10 +8,10 @@ const path_1 = require("path");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const config = new swagger_1.DocumentBuilder()
-        .setTitle('Cats example')
-        .setDescription('The cats API description')
+        .setTitle('Models')
+        .setDescription('Models online shop')
         .setVersion('1.0')
-        .addTag('cats')
+        .addTag('models')
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('api', app, document);
@@ -20,6 +20,7 @@ async function bootstrap() {
         transform: true,
     }));
     app.enableCors();
+    app.setGlobalPrefix('api');
     app.useStaticAssets((0, path_1.join)(__dirname, '..', 'static'), {
         prefix: '/static/'
     });

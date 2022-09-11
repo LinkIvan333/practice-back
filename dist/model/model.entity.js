@@ -49,6 +49,10 @@ __decorate([
     __metadata("design:type", String)
 ], ModelEntity.prototype, "description", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    __metadata("design:type", Boolean)
+], ModelEntity.prototype, "latest", void 0);
+__decorate([
     (0, typeorm_1.Column)({ default: false }),
     __metadata("design:type", Boolean)
 ], ModelEntity.prototype, "sell", void 0);

@@ -26,6 +26,7 @@ export type Model = {
     sellPrice: number;
     previewPhoto: string;
     manufacturer: number;
+    latest: boolean;
 }
 
 export type Addition = {
@@ -102,4 +103,13 @@ export class getSearchResults{
     @IsString()
     @IsOptional()
     price: number;
+
+    @IsBoolean()
+    @IsOptional()
+    latest: number;
+}
+
+export class deleteModel{
+    @IsNumberString()
+    modelID: number;
 }

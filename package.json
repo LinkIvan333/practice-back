@@ -33,7 +33,7 @@
     "@nestjs/platform-express": "^9.0.3",
     "@nestjs/swagger": "^6.0.4",
     "@nestjs/typeorm": "^9.0.0",
-    "adminjs": "^6.0.6",
+    "adminjs": "file:adminjs-6.0.6.tgz",
     "bcrypt": "^5.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
